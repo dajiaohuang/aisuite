@@ -30,6 +30,7 @@ Example:
 
 try:
     from .client import MCPClient
+
     __all__ = ["MCPClient"]
 except ImportError:
     MCPClient = None

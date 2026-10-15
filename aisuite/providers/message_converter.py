@@ -25,7 +25,9 @@ class OpenAICompliantMessageConverter:
             if isinstance(message, Message):
                 message_dict = message.model_dump(mode="json")
                 message_dict.pop("refusal", None)  # Remove refusal field if present
-                message_dict.pop("reasoning_content", None)  # Not part of standard API; aisuite internal
+                message_dict.pop(
+                    "reasoning_content", None
+                )  # Not part of standard API; aisuite internal
                 tmsg = message_dict
             elif isinstance(message, dict):
                 tmsg = {k: v for k, v in message.items() if k != "reasoning_content"}
